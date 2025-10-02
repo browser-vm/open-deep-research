@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
     console.log("Model ID:", modelId);
     console.log("Number of Questions:", numQuestions);
     console.log("API Keys Present:", {
-      OpenAI: openaiKey ? "✅" : "❌",
+      xAI: openaiKey ? "✅" : "❌",
       FireCrawl: firecrawlKey ? "✅" : "❌",
     });
 

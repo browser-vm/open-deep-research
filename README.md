@@ -1,12 +1,12 @@
-# Open Deep Research Web UI
+# Grok Deep Research Web UI
 
-A modern, interactive web interface built on top of the original [Deep Research CLI](https://github.com/dzhng/deep-research) project. This web app transforms the command-line research assistant into an intuitive, visually appealing experience using Next.js and shadcn/ui.
+A modern, interactive web interface built on top of the original [Deep Research CLI](https://github.com/dzhng/deep-research) project. This web app transforms the command-line research assistant into an intuitive, visually appealing experience using Next.js, shadcn/ui, and powered by Grok AI.
 
 ## Overview
 
-Open Deep Research Web UI is an AI-powered research assistant that transforms the original CLI tool into a modern web interface using Next.js and shadcn/ui. Try it out at [anotherwrapper.com/open-deep-research](https://anotherwrapper.com/open-deep-research) with your own API keys, or host it yourself.
+Grok Deep Research Web UI is an AI-powered research assistant that transforms the original CLI tool into a modern web interface using Next.js and shadcn/ui. Try it out at [anotherwrapper.com/open-deep-research](https://anotherwrapper.com/open-deep-research) with your own API keys, or host it yourself.
 
-The system combines search engines (via FireCrawl), web scraping, and language models (via OpenAI) to perform deep research on any topic. Key features include:
+The system combines search engines (via FireCrawl), web scraping, and Grok AI (via Vercel AI Gateway) to perform deep research on any topic. Key features include:
 
 - **Intelligent Research Process:**
 
@@ -41,7 +41,7 @@ This project is proudly sponsored by [AnotherWrapper](https://anotherwrapper.com
 ### Prerequisites
 
 - Node.js v14 or later
-- API keys for OpenAI and FireCrawl
+- API keys for xAI (via Vercel AI Gateway) and FireCrawl
 
 ### Installation
 
@@ -58,10 +58,12 @@ This project is proudly sponsored by [AnotherWrapper](https://anotherwrapper.com
    Create `.env.local` and add:
 
    ```bash
-   OPENAI_API_KEY=your-openai-api-key
+   OPENAI_API_KEY=your-xai-api-key  # API key for xAI (Grok) via Vercel AI Gateway
    FIRECRAWL_KEY=your-firecrawl-api-key
    NEXT_PUBLIC_ENABLE_API_KEYS=false  # Set to false to disable API key dialog
    ```
+
+   **Note:** The system now uses Grok AI (xAI) via the Vercel AI Gateway. When deployed on Vercel, the AI Gateway automatically routes requests to Grok for intelligent research and analysis.
 
 3. **Run the App**
    ```bash
@@ -71,9 +73,9 @@ This project is proudly sponsored by [AnotherWrapper](https://anotherwrapper.com
 
 ## API Key Management
 
-By default (`NEXT_PUBLIC_ENABLE_API_KEYS=true`), the app includes an API key input dialog that allows users to try out the research assistant directly in their browser using their own API keys. Keys are stored securely in HTTP-only cookies and are never exposed to client-side JavaScript.
+By default (`NEXT_PUBLIC_ENABLE_API_KEYS=true`), the app includes an API key input dialog that allows users to try out the research assistant directly in their browser using their own xAI API keys. Keys are stored securely in HTTP-only cookies and are never exposed to client-side JavaScript.
 
-For your own deployment, you can disable this dialog by setting `NEXT_PUBLIC_ENABLE_API_KEYS=false` and configure the API keys directly in your `.env.local` file instead.
+For your own deployment, you can disable this dialog by setting `NEXT_PUBLIC_ENABLE_API_KEYS=false` and configure the xAI API key directly in your `.env.local` file instead.
 
 ## License
 
@@ -83,6 +85,7 @@ MIT License. Feel free to use and modify the code for your own projects as you w
 
 - **Original CLI:** [dzhng/deep-research](https://github.com/dzhng/deep-research)
 - **Sponsor:** [AnotherWrapper](https://anotherwrapper.com)
+- **AI Power:** Grok AI (xAI) via Vercel AI Gateway
 - **Tools:** Next.js, shadcn/ui, anotherwrapper, Vercel AI SDK
 
-Happy researching!
+Happy researching with Grok!

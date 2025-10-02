@@ -7,7 +7,7 @@ import { systemPrompt } from './prompt';
 export async function generateFeedback({
   query,
   numQuestions = 3,
-  modelId = 'o3-mini',
+  modelId = 'xai/grok-4-fast-reasoning',
   apiKey,
 }: {
   query: string;

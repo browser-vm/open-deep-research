@@ -356,7 +356,7 @@ export function Chat({
                     className="text-xs md:text-base text-muted-foreground/80 max-w-[340px] mx-auto leading-relaxed"
                   >
                     An open source alternative to OpenAI and Gemini's deep
-                    research capabilities. Ask any question to generate a
+                    research capabilities, powered by Grok AI. Ask any question to generate a
                     comprehensive report.
                   </motion.p>
 

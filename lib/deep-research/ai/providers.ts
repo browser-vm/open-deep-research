@@ -5,22 +5,10 @@ import { RecursiveCharacterTextSplitter } from './text-splitter';
 
 // Model Display Information
 export const AI_MODEL_DISPLAY = {
-  'gpt-4o': {
-    id: 'gpt-4o',
-    name: 'GPT-4o',
-    logo: '/providers/openai.webp',
-    vision: true,
-  },
-  'gpt-4o-mini': {
-    id: 'gpt-4o-mini',
-    name: 'GPT-4o mini',
-    logo: '/providers/openai.webp',
-    vision: true,
-  },
-  'o3-mini': {
-    id: 'o3-mini',
-    name: 'o3 mini',
-    logo: '/providers/openai.webp',
+  'xai/grok-4-fast-reasoning': {
+    id: 'xai/grok-4-fast-reasoning',
+    name: 'Grok-4 Fast Reasoning',
+    logo: '/providers/openai.webp', // Using OpenAI logo as placeholder for xAI
     vision: false,
   },
 } as const;
@@ -36,14 +24,27 @@ const openai = createOpenAI({
 
 // Create model instances with configurations
 export function createModel(modelId: AIModel, apiKey?: string) {
+  // For traditional OpenAI models, use the existing approach
   const client = createOpenAI({
     apiKey: apiKey || process.env.OPENAI_KEY!,
   });
 
   return client(modelId, {
     structuredOutputs: true,
-    ...(modelId === 'o3-mini' ? { reasoningEffort: 'medium' } : {}),
   });
+}
+
+// Helper function to get model for gateway or traditional models
+export function getModelForUsage(modelId: AIModel, apiKey?: string) {
+  // Check if this is a gateway model (format: provider/model-name)
+  if (modelId.includes('/')) {
+    // For gateway models, return the model string directly
+    // The Vercel AI Gateway will handle the routing automatically
+    return modelId;
+  }
+
+  // For traditional OpenAI models, use the existing createModel function
+  return createModel(modelId, apiKey);
 }
 
 // Token handling

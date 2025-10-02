@@ -48,7 +48,7 @@ export function MultimodalInput({
   const [breadth, setBreadth] = useState(4);
   const [depth, setDepth] = useState(2);
   const [selectedModel, setSelectedModel] = useState<AIModelDisplayInfo>(
-    availableModels.find((model) => model.id === "o3-mini") ||
+    availableModels.find((model) => model.id === "xai/grok-4-fast-reasoning") ||
       availableModels[0]
   );
   const [isModelDropdownOpen, setIsModelDropdownOpen] = useState(false);

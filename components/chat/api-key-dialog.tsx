@@ -103,12 +103,12 @@ export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
                 <h4 className="font-medium text-blue-900 flex items-center mb-2 text-sm">
                   <Image
                     src="/providers/openai.webp"
-                    alt="OpenAI Logo"
+                    alt="xAI Logo"
                     width={16}
                     height={16}
                     className="mr-2"
                   />
-                  OpenAI API Key
+                  xAI API Key
                 </h4>
                 <p className="text-xs text-blue-700">
                   Powers our advanced language models for research analysis and
@@ -119,7 +119,7 @@ export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
                     rel="noopener noreferrer"
                     className="block mt-2 text-blue-600 hover:text-blue-800 underline"
                   >
-                    Get your OpenAI key →
+                    Get your xAI key →
                   </a>
                 </p>
               </div>
@@ -148,7 +148,7 @@ export function ApiKeyDialog({ show, onClose, onSuccess }: ApiKeyDialogProps) {
           <div className="space-y-3 sm:space-y-4">
             <div>
               <label className="text-sm font-medium text-zinc-700 mb-1 block">
-                OpenAI API Key
+                xAI API Key
               </label>
               <div className="relative">
                 <Input

@@ -5,7 +5,7 @@ import {
   generateFeedback,
   writeFinalReport,
 } from "@/lib/deep-research";
-import { createModel, type AIModel } from "@/lib/deep-research/ai/providers";
+import { type AIModel } from "@/lib/deep-research/ai/providers";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
       query,
       breadth = 3,
       depth = 2,
-      modelId = "o3-mini",
+      modelId = "xai/grok-4-fast-reasoning",
     } = await req.json();
 
     // Retrieve API keys from secure cookies
@@ -22,6 +22,10 @@ export async function POST(req: NextRequest) {
 
     // Add API key validation
     if (process.env.NEXT_PUBLIC_ENABLE_API_KEYS === "true") {
+      // Check if model is a gateway model (contains '/')
+      const isGatewayModel = modelId.includes('/');
+
+      // For Grok models via gateway, we need API keys for authentication
       if (!openaiKey || !firecrawlKey) {
         return Response.json(
           { error: "API keys are required but not provided" },
@@ -38,13 +42,15 @@ export async function POST(req: NextRequest) {
       depth,
     });
     console.log("API Keys Present:", {
-      OpenAI: openaiKey ? "✅" : "❌",
+      xAI: openaiKey ? "✅" : "❌",
       FireCrawl: firecrawlKey ? "✅" : "❌",
     });
+    console.log("Model Type:", "Grok AI Model");
 
     try {
-      const model = createModel(modelId as AIModel, openaiKey);
-      console.log("\n🤖 [RESEARCH ROUTE] === Model Created ===");
+      // Create the Grok model
+      const model = modelId; // Grok model via Vercel AI Gateway
+      console.log("\n🤖 [RESEARCH ROUTE] === Grok Model ===");
       console.log("Using Model:", modelId);
 
       const encoder = new TextEncoder();
