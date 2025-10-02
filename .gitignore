@@ -50,3 +50,7 @@ yarn.lock
 .vscode/
 *.swp
 *.swo
+
+# Vibe Coding/AI Assistants
+.kilocode/
+kilo-code-settings.json
